@@ -1,0 +1,43 @@
+To get a project to production level we need to bundle all the files in our code repo.
+This is done by bundler.
+The code should also be optimized --> chunking, image optimization, code splitting and a lot of other stuff.
+
+React together with other packages sometimes called dependencies together make our project fast!
+
+npm is a package manager but it's full form is not node package manager.
+almost every package that one need to installl is hosted over there
+
+To add npm --> npm init  / npm init -y
+
+
+bundler --> webpack, parcel, vite (example).     Create-react-app --> uses webpack behind the scenes
+
+We'll use parcel
+
+npm install -D parcel      // what's -D? there are 2 types of package we can install 
+                           1. dev dependency (require in dev phase)     2. normal dependencies (used in production)
+
+so it's basically saying we need parcel as a dev dependency.
+
+now parcel is installed as a devDepencendy. see package.json.
+there you'll find something like "^version".  (you can also use "~version" (not recommended))
+
+^ (caret) automatically the package is updated to new minor version  2.8.3 ---> 2.8.4
+~ (tilde) automatically updates to major version      2.8.3 ---> 3.0.0
+
+now there's a package-lock.json file in the codebase as well. what is this?
+
+package.json  --> it's a configuration for npm. it keeps track of what version of packages are installed in the app
+
+package-lock.json --> keeps track of exact version that is being install
+
+In summary, the package.json file focuses on project metadata and specifying the desired versions of dependencies, 
+while the package-lock.json file ensures deterministic installations by locking the exact versions of dependencies
+and their dependencies. 
+
+node modules --> this is where actuall dependencies lies. It tends to be quite heavy as 
+let's say we installed parcel as a dependency. parcel have it's own set of dependencies and those dependencies can further
+may have other dependencies.    this is known transitive dependency
+
+you do not need to push node_modules to github (so add it to gitignore) but always remember to push package.json and
+package-lock.json
