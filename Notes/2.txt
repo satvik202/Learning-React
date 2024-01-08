@@ -60,8 +60,30 @@ tag in index.html before this though otherwise you'll get an error as import is 
 ## parcel -> 1. dev build     2. local server      3. HMR --> Hot Module Replacement   4. faster build becasue of caching
 #            5. Image Optimization         6. minification          7. compression of file        8.bundling
 #           9. consistent hashing       10. code splitting         11. differential bundling (support older browser)
-            12. diagnostics           13. error handling     14. HTTPS (we can host project here as well)
-            15.   Tree Shaking --> remove unnessesary and unwanted/unused code  
+#            12. diagnostics           13. error handling     14. HTTPS (we can host project here as well)
+#           15.   Tree Shaking --> remove unnessesary and unwanted/unused code  
 
 
-parcel uses a file watching algorithm (which is written in C++) it build the dev and server each time it detects a change
+16. parcel uses a file watching algorithm (which is written in C++) it build the dev and server each time it 
+detects a change in the code
+
+17. different dev and production bundles
+
+to host the application for profuction use :   npx parcel build index.html
+
+the term "build" refers to the process of transforming and preparing your web application for deployment. 
+By running the build command, you're essentially telling Parcel to perform all essential tasks and prepare your project for production. 
+This process helps ensure that your web application is efficient, performs well, and is ready for deployment to a live server
+
+so while doing so you may get an error like :
+Target "main" declares an output file path of "app.js" which does not match the compiled 
+bundle type "html".
+this is due to the reason mismatch between the declared output file path in your Parcel configuration
+and the compiled bundle type. The configuration is set to output a file named "app.js,"
+which suggests a JavaScript bundle, but the compiled bundle type is identified as "html." so you'll need to remove main : "app.js"
+from package.json
+
+
+now to make our application support older browsers we can add "browserslist" : [array for versions] in package.json
+
+and with this we have Made what create-React-app does automatically!
