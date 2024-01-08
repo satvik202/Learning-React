@@ -40,4 +40,28 @@ let's say we installed parcel as a dependency. parcel have it's own set of depen
 may have other dependencies.    this is known transitive dependency
 
 you do not need to push node_modules to github (so add it to gitignore) but always remember to push package.json and
-package-lock.json
+package-lock.json.  you can get back the node modules by doing --> npm install (only if package.json and package-lock is present)
+
+NPM is a package management that is used to install, uninstall, and update Javascript packages on your workstation,
+whereas NPX is a package executer that is used to directly execute Javascript packages without installing them.
+
+igniting the app --> npx parcel index.html
+
+parcel hosted our project on a local server with port 1234
+
+now it is not prefered to use CDN link to inject react in the project instead use npm to install it in the node modules
+do this instead :
+npm install react
+npm install react-dom
+
+now we should import react and react-dom in app.js file where we are using react. we'll need to add type="module" in the sript
+tag in index.html before this though otherwise you'll get an error as import is not part of normal Javascript
+
+## parcel -> 1. dev build     2. local server      3. HMR --> Hot Module Replacement   4. faster build becasue of caching
+#            5. Image Optimization         6. minification          7. compression of file        8.bundling
+#           9. consistent hashing       10. code splitting         11. differential bundling (support older browser)
+            12. diagnostics           13. error handling     14. HTTPS (we can host project here as well)
+            15.   Tree Shaking --> remove unnessesary and unwanted/unused code  
+
+
+parcel uses a file watching algorithm (which is written in C++) it build the dev and server each time it detects a change
