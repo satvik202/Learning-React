@@ -1,0 +1,114 @@
+So, To execute the project we do : npx parcel index.html
+To make our work easier we create a script so that instead of writing this command everytime, we execute 
+the project using some short prompt
+
+there will be a key "scripts" in package.json add it there eg:
+
+"start" : "parcel index.html"
+now you do not need to use "npx parcel index.html". instead you will write 
+"npm run start"    (replace start with the script name, you understand right?)
+for start : "npm start" will work too (only for start it is reserved by npm)
+
+ok so now let's start laying out the fundamentals
+
+now first the recape 
+                                   tag name    object(will contain attributes)
+const heading= React.createElement("div", {id : "child1"},   // react element
+[React.createElement("h1",{}, "this is an h1 tag"),   // whatever inside the element
+React.createElement("h2",{}, "this is an h2 tag")]
+);
+const root= ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading)
+
+
+doing the above stuff is kind of hectic and clumsy right?, to tackle that facebook (now meta) developers made 
+JSX
+
+now JSX is not html in javascript rather it's an html like syntax to write markup
+
+Consider this variable declaration:
+
+const element = <h1>Hello, world!</h1>;
+
+This funny tag syntax is neither a string nor HTML.
+
+It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what 
+the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+
+JSX produces React “elements”.
+
+JSX is not pure javascript and JS Engine cannot even understand JSX. 
+but it still works! why?
+before js is executed by js engine like v8 it is first transpiled by parcel (or other bundler)
+Again parcel doesn't do transpiling by itself. It is done by babel (inside the node modules installed by parcel).
+
+you can give attributes to jsx similarly to how you do it to html but 
+in html class="abc" but in jsx it's className="abc" and tabindex="2" --> tabIndex="2"  (camelcase in jsx)
+
+you need to wrap jsx in {} if it's in multiple lines
+
+
+
+// React Components
+there are two types of react components : 
+1. Class based components --> OLD way  /*nobody uses this now*/
+2. Function based components --> NEW way
+
+The name of any react component must be in capital (not "heading" but "Heading")
+
+A function that returns JSX(or a react element you know) is a function component.
+
+let's say you have a component :
+
+const Component = () => {
+    return <h1>This is a react Component</h1> 
+}
+const Heading=()=> <h1>What is this?</h1>   // this is valid too but only for single line
+
+to render this you will do ---> root.render(<Component />)
+
+// component composition : It involves combining or nesting smaller, reusable components to
+//                         create more complex and feature-rich components
+
+eg :
+const Component = () => {
+    <div>
+    <Heading/>    //heading component will come here as it is.
+    <h1>This is a react Component</h1>  // you do not even need to use return here.
+    </div>
+}
+
+Again --> <Heading/> === <Heading></Heading>  (interpreted as same things)
+
+
+now let's take the above eg once more
+
+const Component = () => {
+    <div>
+    <Heading/>    
+    {
+        // here you can write javascript amazing right?
+    }
+    <h1>This is a react Component</h1>  
+    </div>
+}
+thus let's say if Heading was a react element not a react component then to put it in other component you can do :
+
+const Component = () => {
+    <div>
+    {Heading}
+    <h1>This is a react Component</h1>  
+    </div>
+}
+
+ohh and is heading was a function component
+we can also do it like this too
+const Component = () => {
+    <div>
+    {Heading()}
+    <h1>This is a react Component</h1>  
+    </div>
+}
+
+And this will work becasue in jsx inside {} you can execute js code and what is Heading here?
+A js function and we are executing it
