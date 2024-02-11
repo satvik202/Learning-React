@@ -1,0 +1,88 @@
+So the Actual React is gonna start from here on out! And We will do it by making
+a FOOD ORDERING APP !!!
+
+I'll name it --> FoodFire
+
+one thing to do before jumping into coding your project it to make a plan!
+
+It is because once you have a picture about where things will come up, it will be very easy to write code
+
+now let's think about different components we need :
+
+->header
+   -> logo
+   -> navItems
+
+->body/hero
+   -> searchBar
+   -> restaurantContainer
+      -> restaurantCard
+        -> img name rating delivery cuisine
+->footer
+   -> copyright
+   -> links
+   -> address and stuff
+
+
+
+how to pass inline style/css in react components
+---> they are passed around as js object. see this :
+
+const styleCard =  {
+  backgroundColor : "yellow"
+}
+
+const RestaurantCard = () =>{
+  return (
+    <div className="res-card" style={styleCard}>
+      <h3>Meghna Foods</h3>
+    </div>
+  )
+}
+
+or this is good to go as well :
+
+const RestaurantCard = () =>{
+  return (
+    <div className="res-card" style={{
+      backgroundColor : "yellow"
+   }}>
+      <h3>Meghna Foods</h3>
+    </div>
+  )
+}
+
+
+Props : they are used to dynamically pass data to components. same as you pass arguments to functions
+
+const RestaurantCard = (props) =>{
+  return (
+    <div className="res-card" style={{backgroundColor : "#f0f0f0"}}>
+      <h3>{props.resName}</h3>
+      <h4>{props.cuisine}</h4>
+      <h4>4.4 stars</h4>
+      <h4>38 minutes</h4>
+    </div>
+  )
+}
+
+const Body = ()=>{
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        <RestaurantCard resName="Meghna Foods" cuisine="Biryani North Indian Asian"/>
+        <RestaurantCard resName="KFC" cuisine="Fast Food"/>
+      </div>
+    </div>
+  )
+}
+
+
+Conflig Driven UI:  Config-driven UI is a technique that allows you to create user interfaces based on a configuration file,
+such as JSON, or a TypeScript file that defines the layout and content of the UI components.
+This can be useful for creating dynamic and customizable UIs without hard coding them.
+
+
+how to use map :
+resList.map(res => <RestaurantCard key={res.info.id} resData={res}/>)

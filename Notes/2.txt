@@ -2,7 +2,7 @@ To get a project to production level we need to bundle all the files in our code
 This is done by bundler.
 The code should also be optimized --> chunking, image optimization, code splitting and a lot of other stuff.
 
-React together with other packages sometimes called dependencies together make our project fast!
+React together with other packages sometimes called dependencies make our project fast!
 
 npm is a package manager but it's full form is not node package manager.
 almost every package that one need to installl is hosted over there
@@ -42,7 +42,7 @@ may have other dependencies.    this is known transitive dependency
 you do not need to push node_modules to github (so add it to gitignore) but always remember to push package.json and
 package-lock.json.  you can get back the node modules by doing --> npm install (only if package.json and package-lock is present)
 
-NPM is a package management that is used to install, uninstall, and update Javascript packages on your workstation,
+NPM is a package manager that is used to install, uninstall, and update Javascript packages on your workstation,
 whereas NPX is a package executer that is used to directly execute Javascript packages without installing them.
 
 igniting the app --> npx parcel index.html

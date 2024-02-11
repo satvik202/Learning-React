@@ -101,7 +101,7 @@ const Component = () => {
     </div>
 }
 
-ohh and is heading was a function component
+ohh and if heading was a function component
 we can also do it like this too
 const Component = () => {
     <div>
