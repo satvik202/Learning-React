@@ -1,0 +1,19 @@
+Let's get hooked!
+
+How to export :
+
+2 ways:
+
+i) import default {name of the component}    // the default export --> when you need to export only one thing
+
+ii) just write export before the variable name // named export  -> used when you need to export multiple objects from a file
+
+import : import Header from "./components/Header";   // default import
+
+--> never keep the hardcoded data in the components file
+use the folder utils/config for that stuff
+
+when we use named export we import stuff slightly differently
+ie. whatever you're importing should be in curly braces
+eg. : 
+import {CDN_URL} from "../utils/constants"  // named import
