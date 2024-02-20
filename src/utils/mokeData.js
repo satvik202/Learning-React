@@ -398,7 +398,7 @@ const resList = [
           "Snacks",
           "Fast Food"
         ],
-        "avgRating": 4.2,
+        "avgRating": 3.2,
         "parentId": "547",
         "avgRatingString": "4.2",
         "totalRatingsString": "1K+",
@@ -714,7 +714,7 @@ const resList = [
         ],
         "avgRating": 4.1,
         "parentId": "50319",
-        "avgRatingString": "4.1",
+        "avgRatingString": "3.9",
         "totalRatingsString": "1K+",
         "sla": {
           "deliveryTime": 26,

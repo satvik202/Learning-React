@@ -4,9 +4,9 @@ How to export :
 
 2 ways:
 
-i) import default {name of the component}    // the default export --> when you need to export only one thing
+(i) import default {name of the component}    // the default export --> when you need to export only one thing
 
-ii) just write export before the variable name // named export  -> used when you need to export multiple objects from a file
+(ii) just write export before the variable name // named export  -> used when you need to export multiple objects from a file
 
 import : import Header from "./components/Header";   // default import
 
@@ -17,3 +17,32 @@ when we use named export we import stuff slightly differently
 ie. whatever you're importing should be in curly braces
 eg. : 
 import {CDN_URL} from "../utils/constants"  // named import
+
+
+React hooks  --> just normal js utility functions provided by React
+there are many such but 2 most important are :
+
+(i) useState()
+    ->the useState hook is used to add state to functional components.
+      It allows you to declare state variables inside functional components and provides a way to update them.
+    ->you need to neme import it before using it
+
+
+    whenever a state variable updates react rerenders the component
+
+    syntax :
+    const [restaurant, setRestaurant] = useState(resList)  // resList will be the initial value of restaurant
+
+    to change restaurant, you need to pass the new value in side setRestaurant--> a callback function
+
+
+(ii) useEffect()
+
+
+behind the scenes react uses "Reconsiliation ALgorithm" (also known as react fiber)
+React creates a virtual DOM (a representation of the actual DOM)
+
+Diff ALgoritm -> find outs the difference between two virtual DOMs  --> the updated VDOM and the previous VDOM
+
+Why react if fast?
+Because it maintains a virtual DOM. It uses an algo called "Diff Algorithm" which is very efficient for DOM manipulation
