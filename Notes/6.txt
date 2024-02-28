@@ -1,0 +1,10 @@
+useEffect hook :
+(named imported)
+
+useEffect(callback Function, dependency array);  // 2 parameters
+this callback function will be called after the component is rendered
+
+So if you gotta do something after rendering the component. you have to use useEffect
+
+useEffect allow you to perform side effects in function components.
+Side effects may include data fetching, subscriptions, or manually changing the DOM in React components.

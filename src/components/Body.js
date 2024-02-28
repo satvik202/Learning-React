@@ -1,12 +1,27 @@
-import resList from "../utils/mokeData";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 
 
 const Body = ()=>{
-  const [restaurant, setRestaurant] = useState(resList)
+  const [restaurant, setRestaurant] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, [])
+
+  const fetchData = async ()=> {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.66500&lng=77.44770&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+
+    const json = await data.json();
+    console.log(json);
+    setRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+  }
+
+  if(restaurant.length === 0) {
+    return <Shimmer/>
+  }
+
     return (
       <div className="body">
         <div className="filter">
