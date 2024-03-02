@@ -18,9 +18,9 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
     setRestaurant(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
     );
-    setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    setFilteredRestaurant(json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants);
   };
   // this is also called as conditional rendering
   if (restaurant.length === 0) {

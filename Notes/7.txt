@@ -1,0 +1,63 @@
+// now we'll learn about routing but before that we'll dive deep into hooks a little more
+
+useEffect :
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  now useEffect here taking 2 arguments, 1. a callback function 2. a dependency array
+
+  passing dependency array is not mandatory. If you do not pass the dependency array then useEffect will 
+  be called everytime the component renders
+
+  dependency array changes the behaviour of the re-rendering.
+  if the dependency array is empty like in the above example, then useEffect hook'll be called just once that too
+  initially
+
+  if dependency array is [a] then useEffect will be called everytime the "a" is changing
+
+
+ok now let's get on to routing then. 
+
+most of the organizations uses "react router dom" to make routing possible in react applications
+
+--> npm install react-router-dom     or npm i react-router-dom
+
+now there's some functions that it provides:
+
+createBrowserRrouter() : This is the recommended router for all React Router web projects.
+It uses the DOM History API to update the URL and manage the history stack.
+
+const appRouter = createBrowserRouter(
+  [
+    {
+      path : "/",
+      element : <AppLayout/>,
+      errorElement : <Error/>
+    },
+    {
+      path : "/about",
+      element : <About/>,
+    },
+    {
+      path : "/contact",
+      element : <Contact/>,
+    }
+  ]
+)
+
+there are other router that this library provides. We use them on the basis of specific usecases
+createBrowserRrouter is the most basic and recommended one.
+
+root.render(<RouterProvider router={appRouter}/>);
+
+and now you render RouterProvider and pass the created object that holds paths and it's route to it
+
+errorElement : <Error/> this will rendor when we encounter any error in routing
+eg. the passed route doesn't exist
+
+
+import { useRouteError } from "react-router-dom";
+
+useRouteError -> a hook provided the react-router-dom library. it is used to read the error
