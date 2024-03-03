@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
+import {RES_CARD_API} from "../utils/constants.js"
 import Shimmer from "./Shimmer";
 
 const Body = () => {
@@ -11,16 +12,14 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.66500&lng=77.44770&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RES_CARD_API);
 
     const json = await data.json();
     console.log(json);
     setRestaurant(
-      json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants
+      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
     );
-    setFilteredRestaurant(json.data.cards[3].card.card.gridElements.infoWithStyle.restaurants);
+    setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
   };
   // this is also called as conditional rendering
   if (restaurant.length === 0) {
