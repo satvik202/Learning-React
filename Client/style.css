@@ -76,3 +76,15 @@
     margin-right: 20px;
     cursor: pointer;
   }
+
+  a{
+    text-decoration: none;
+  }
+
+  a:link {
+    color: black;
+  }
+  
+  a:visited {
+    color: black;
+  }

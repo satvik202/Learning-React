@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import {RES_CARD_API} from "../utils/constants.js"
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurant, setRestaurant] = useState([]);
@@ -12,14 +13,14 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(RES_CARD_API);
+    const data = await fetch("https://gaurang-gaur.github.io/host_api/apiData.json");
 
     const json = await data.json();
     console.log(json);
     setRestaurant(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      json.sections.SECTION_SEARCH_RESULT
     );
-    setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    setFilteredRestaurant(json.sections.SECTION_SEARCH_RESULT);
   };
   // this is also called as conditional rendering
   if (restaurant.length === 0) {
@@ -44,7 +45,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setRestaurant(restaurant.filter((res) => res.info.avgRating > 4));
+            setRestaurant(restaurant.filter((res) => res.info.rating.rating_text > 4));
           }}
         >
           Filter top restaurants
@@ -52,7 +53,9 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((res) => (
-          <RestaurantCard key={res.info.id} resData={res} />
+          <Link to={"restaurant/"+res.info.resId}>
+          <RestaurantCard key={res.info.resId} resData={res} />
+          </Link>  
         ))}
       </div>
     </div>
