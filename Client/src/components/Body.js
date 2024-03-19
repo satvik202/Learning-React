@@ -1,8 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import {RES_CARD_API} from "../utils/constants.js"
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
+// import {RES_CARD_API} from "../utils/constants.js"
 
 const Body = () => {
   const [restaurant, setRestaurant] = useState([]);
@@ -22,6 +23,14 @@ const Body = () => {
     );
     setFilteredRestaurant(json.sections.SECTION_SEARCH_RESULT);
   };
+  const isOnline = useOnlineStatus()
+  if(isOnline===false){
+    return (
+      <h1>
+        Opps! It seems your Internet isn't working. Please check your connection
+      </h1>
+    )
+  }
   // this is also called as conditional rendering
   if (restaurant.length === 0) {
     return <Shimmer />;

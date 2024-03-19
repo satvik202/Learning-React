@@ -1,0 +1,21 @@
+Class based components
+
+import "React" from "react"
+
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+
+whenever we mount a class based component, first it's constructor is called.
+
+1. constructor   This is called when the component is initialized. It's typically used for initializing state and binding methods.
+2. render() method within the class ---> this will what the user see
+   This method is called to render the component's UI. It returns the JSX that represents what the user will see.
+3. componentDidMount() method ---> called after render() is done. generally used to fetch data from apis
+4. componentWillUnmount() when we are unmounting the component
+ This method is called just before the component is removed from the DOM.
+ It's used for cleaning up any resources used by the component, such as event listeners or subscriptions.
+
+So, in summary, the lifecycle methods mentioned are part of the React component lifecycle.

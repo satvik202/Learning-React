@@ -1,0 +1,40 @@
+custom hooks
+
+but first ,
+single responsibility principle  -
+
+The single responsibility principle is a computer programming principle that states that 
+"A module should be responsible to one, and only one, actor." 
+The term actor refers to a group that requires a change in the module.
+
+
+custom hooks :
+Hooks are reusable functions.
+When you have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook.
+Custom Hooks start with "use"(it is just a convention). Example: useFetch.
+
+An example of custom hook :
+
+const useRestaurantMenue = (resId)=>{
+    const [resInfo, setResInfo] = useState("");
+    useEffect(()=>{
+        // console.log("inside useeffect");
+        fetchData(resId)
+    }, []);
+    // console.log("outside useeffect");
+    const fetchData = async (resId) =>{
+        const data = await fetch(MENUE_API+resId);
+        const jsn=await data.json();
+
+        setResInfo(jsn)
+    }
+    return resInfo
+}
+export default useRestaurantMenue
+
+chunking 
+code splitting
+lazy loading
+dynamic loading
+dynamic import
+on demand loading
