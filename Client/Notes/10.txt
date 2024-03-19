@@ -1,0 +1,44 @@
+CSS frameworks :
+tailwind
+chakraUI
+Saas/Scss  --> kind of like a language
+MaterialUI  
+bootstrap
+Ant Design
+
+Let's know more about TailWind
+
+setup/ initiation / installation
+
+install tailwindcss and its peer dependencies via npm, and then run the init command to generate tailwind.config.js.
+
+npm install -D tailwindcss postcss
+npx tailwindcss init
+
+Create a .postcssrc file in your project root, and enable the tailwindcss plugin.
+{
+  "plugins": {
+    "tailwindcss": {}
+  }
+}
+
+Add the paths to all of your template files in your tailwind.config.js file.
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+now inside index.css / style.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+this is all you need to do. now you don't need to write any manual css in style.css
+rather you'll be using predefined classes of css in tailwind
