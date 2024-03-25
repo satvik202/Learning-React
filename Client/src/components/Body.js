@@ -14,14 +14,14 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch("https://gaurang-gaur.github.io/host_api/apiData.json");
+    const data = await fetch("https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
 
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
     setRestaurant(
-      json.sections.SECTION_SEARCH_RESULT
+      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants  // array
     );
-    setFilteredRestaurant(json.sections.SECTION_SEARCH_RESULT);
+    setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
   };
   const isOnline = useOnlineStatus()
   if(isOnline===false){
@@ -54,7 +54,7 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            setRestaurant(restaurant.filter((res) => res.info.rating.rating_text > 4));
+            setRestaurant(restaurant.filter((res) => res.info.avgRating >= 4));
           }}
         >
           Filter top restaurants
@@ -62,8 +62,8 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((res) => (
-          <Link to={"restaurant/"+res.info.resId}>
-          <RestaurantCard key={res.info.resId} resData={res} />
+          <Link to={"restaurant/"+res.info.id}>
+          <RestaurantCard key={res.info.id} resData={res} />
           </Link>  
         ))}
       </div>
