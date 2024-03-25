@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { RESTAURANT_TYPE_KEY , MENU_ITEM_TYPE_KEY } from "./constants";
+import { RESTAURANT_TYPE_KEY , MENU_ITEM_TYPE_KEY, RES_DATA_KEY } from "./constants";
 
 const useRestaurantMenue = (resId) => {
   // const [resInfo, setResInfo] = useState("");
@@ -11,10 +11,7 @@ const useRestaurantMenue = (resId) => {
   }, []);
   // console.log("outside useeffect");
   const fetchData = async (resId) => {
-    const response = await fetch(
-      "https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=" +
-        resId
-    );
+    const response = await fetch(RES_DATA_KEY +  resId);
     const json = await response.json();
 
     const restaurantData =

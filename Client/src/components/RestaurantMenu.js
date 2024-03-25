@@ -1,38 +1,24 @@
-// import { useEffect, useState } from "react";
+
 import useRestaurantMenue from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 
 const RestaurantMenu = ()=> {
 
-    // const [data,setData]=useState("");
-
     const {resId}=useParams()
     console.log(resId); 
     
     const {restaurant, menuItems} = useRestaurantMenue(resId)
-    // console.log("we are in restaurant menue")
-    // console.log(restaurant)
-    // console.log(menuItems)
-//{
-    // console.log("finished");
-    // console.log(data)
-    // useEffect(()=>{
-    //     fetchMenue()
-    // }, [])
 
-    // const fetchMenue = async ()=> {
-    //     const data = await fetch("http://localhost:8000/restaurant/"+resId);
-
-    //     const jsn=await data.json();
-    //     // console.log(jsn);
-    //     setData(jsn);
-    // }
-//}
+    if(restaurant==null){
+        return <Shimmer/>
+    }
 
     return (
         <div>
-             {restaurant && <h1 >{restaurant.name}</h1>}
+             {/* {restaurant && <h1 >{restaurant.name}</h1>} */}
+
+             <h1>{restaurant.name}</h1>
 
             <br></br>
             <br></br>
