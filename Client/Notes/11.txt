@@ -12,4 +12,41 @@ higher order component
 controlled and uncontrolled components
 lifting state up
 props drilling
-react context
+react context  ---> global place where data is kept and anybody can access it.
+
+it is one of the solutions for props drilling
+
+react gives us an utility function createContext
+
+so you can create a file UserContext.js in utils & do
+import {createContext} from "react"
+const userContext = createContext(
+   key : values,
+   key : values,
+   key : values,
+   key : values,
+)
+export default userContext
+
+to use the context we have a hook -> useContext
+const data = useContext(userContext)  // you gotta import it first
+
+data will have userContext
+
+we do not have hooks in classBased compontents
+
+but you can do something like
+
+<div>
+<userContext.Consumer>
+   {(data) =>  console.log(data)} // this data is userContext
+</userContext.Consumer>
+</div>
+
+userContext.Consumer is a compontent
+
+how to update / add context :
+
+<UserContext.Provider {{value : key}}>
+wrap the main app here
+</UserContext.Provider>
