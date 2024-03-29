@@ -11,13 +11,13 @@ const Header = ()=> {
         </div>
         <div className="flex items-center">
           <ul className="flex">
-            <li>Online Status :{useOnlineStatus() ? "✅" : "🔴"}</li>
-            <li className="ml-4"><Link to="/">Home</Link></li>
-            <li className="ml-4"><Link to="/about">About Us</Link></li>
-            <li className="ml-4"><Link to="/contact">Contact Us</Link></li>
-            <li className="ml-4"><Link to="/grocery">Grocery</Link></li>
-            <li className="ml-4">Cart</li>
-            <button className="mx-4" onClick={()=> {
+            <li className="p-2">Online Status :{useOnlineStatus() ? "✅" : "🔴"}</li>
+            <li className="ml-4 hover:bg-orange-500 hover:text-white hover:rounded-md p-2 delay-75"><Link to="/">Home</Link></li>
+            <li className="ml-4 hover:bg-orange-500 hover:text-white hover:rounded-md p-2 delay-75"><Link to="/about">About Us</Link></li>
+            <li className="ml-4 hover:bg-orange-500 hover:text-white hover:rounded-md p-2 delay-75"><Link to="/contact">Contact Us</Link></li>
+            <li className="ml-4 hover:bg-orange-500 hover:text-white hover:rounded-md p-2 delay-75"><Link to="/grocery">Grocery</Link></li>
+            <li className="ml-4 hover:bg-orange-500 hover:text-white hover:rounded-md p-2 delay-75">{'\u00A0'}Cart{'\u00A0'}</li>
+            <button className="mx-4 hover:bg-orange-500 hover:text-white hover:rounded-md p-2 delay-75" onClick={()=> {
               btnName==="Login" ? setBtnName("Logout") : setBtnName("Login");
             }}>{btnName}</button>
           </ul>

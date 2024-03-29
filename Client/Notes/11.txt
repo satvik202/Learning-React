@@ -1,0 +1,15 @@
+higher order component
+
+-> a component that takes a component (as a prop) and returns a prop
+
+// js tip : object.card.card is same as object.card.["card"]   , let's say one key in your json is @type
+   then you cannot do object.card.card.@type --> that's not the syntax
+   that's where the above stuff will be used
+
+   object.card.card.["@type"]
+
+
+controlled and uncontrolled components
+lifting state up
+props drilling
+react context

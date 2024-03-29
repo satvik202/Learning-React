@@ -1,39 +1,29 @@
-
 import useRestaurantMenue from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 
-const RestaurantMenu = ()=> {
+import RestautrantCategory from "./RestaurantCategory";
 
-    const {resId}=useParams()
-    console.log(resId); 
-    
-    const {restaurant, menuItems} = useRestaurantMenue(resId)
+const RestaurantMenu = () => {
+  const { resId } = useParams();
+  // console.log(resId);
 
-    if(restaurant==null){
-        return <Shimmer/>
-    }
+  const { restaurant, menuItems } = useRestaurantMenue(resId);
 
-    return (
-        <div>
-             {/* {restaurant && <h1 >{restaurant.name}</h1>} */}
-
-             <h1>{restaurant.name}</h1>
-
-            <br></br>
-            <br></br>
-            <h1>Menue Items : </h1>
-            <div>
-            {
-                menuItems.filter(item => !isNaN(item.price)).map(item => (
-                    <p key={item.id}>
-                        {item.name} - ₹{item.price/100}
-                    </p>
-                ))
-            }
-            </div>
-        </div>
-    )
-}
+  if (restaurant == null) {
+    return <Shimmer />;
+  }
+  // console.log(menuItems)
+  return (
+    <div className="">
+      <h1 className="font-bold text-center my-6">{restaurant.name} </h1>
+      <div>
+        {
+          menuItems.map((catagory, index) => <RestautrantCategory key={index} catagory = {catagory}/>)
+        }
+      </div>
+    </div>
+  );
+};
 
 export default RestaurantMenu;
