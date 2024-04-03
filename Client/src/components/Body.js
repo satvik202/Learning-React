@@ -28,7 +28,7 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-  console.log(restaurant);
+  // console.log(restaurant);
   const isOnline = useOnlineStatus();
   if (isOnline === false) {
     return (
@@ -42,7 +42,7 @@ const Body = () => {
     return <Shimmer />;
   }
 
-  console.log(filteredRestaurant);
+  // console.log(filteredRestaurant);
 
   return (
     <div className="body">
@@ -70,7 +70,7 @@ const Body = () => {
           <button
             className="ml-6 border bg-gray-100 rounded-lg py-1 px-4 hover:shadow-sm focus:border-gray-600 focus:outline-none"
             onClick={() => {
-              console.log(restaurant);
+              // console.log(restaurant);
               setFilteredRestaurant(
                 restaurant.filter((res) => res?.info?.avgRating >= 4.4)
               );

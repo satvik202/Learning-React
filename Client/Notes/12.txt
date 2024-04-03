@@ -1,0 +1,46 @@
+Redux
+
+redux works in the data layer
+
+lot of places where redux are use.
+redox is not mandatory. it solves props drilling
+redux is a 3rd party library. not part of react (there are other libraries that can be used to manage states and data like redux as well)
+(e.g zustand)
+
+Redux is used heavily with react that's why it is very popular
+
+redux offers 2 libraries : react-redux   & redux-toolkit
+
+redux-toolkit is the newer way of writing redux.   Vanilla redux isn't used now
+
+
+click(or other event)  --> action is dispatched -->reducer function is called which will then update the slice
+
+component uses selectors to read the data in the slice. this is called subscribing to the store
+
+
+- install @reduxjs/toolkit and react-redux
+- build our own store
+-connect our store to the app
+- cart slice
+- dispatch action (clicking the button or anything else)
+-read data using selector
+
+
+
+npm install @reduxjs/toolkit
+
+configureStore();
+
+
+import { configureStore } from '@reduxjs/toolkit'
+const appStore = configureStore({});
+
+export default appStore;
+
+
+
+
+rtk query
+
+

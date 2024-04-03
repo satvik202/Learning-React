@@ -1,7 +1,16 @@
+import { useDispatch } from "react-redux";
 import { RES_IMG_KEY } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ list }) => {
   // console.log(list);
+
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item)=>{
+    dispatch(addItem(item))
+  }
+
   return (
     <div>
       {list.map((item) => (
@@ -11,6 +20,7 @@ const ItemList = ({ list }) => {
         >
           <div className="p-2 pl-0 w-9/12">
             {item.card.info.name}
+            {/* {console.log(item.card.info.id,item)} */}
             <div>
               {" ₹"}
               {item.card.info.price
@@ -26,7 +36,8 @@ const ItemList = ({ list }) => {
             className="h-5/6"
             src={RES_IMG_KEY + item.card.info.imageId}
           ></img>
-          <button className="bg-white rounded-md text-green-500 font-bold border mt-[-1rem] p-1 px-2 hover:bg-gray-200 block mx-auto">Add +</button>
+          <button className="bg-white rounded-md text-green-500 font-bold border mt-[-1rem] p-1 px-2 hover:bg-gray-200 block mx-auto"
+          onClick={()=> handleAddItem(item)}>Add +</button>
         </div>
         </div>
       ))}
