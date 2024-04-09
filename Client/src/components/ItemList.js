@@ -34,7 +34,7 @@ const ItemList = ({ list }) => {
           <div className="flex flex-col w-3/12 justify-center">
           <img
             className="h-5/6"
-            src={RES_IMG_KEY + item.card.info.imageId}
+            src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + item.card.info.imageId}
           ></img>
           <button className="bg-white rounded-md text-green-500 font-bold border mt-[-1rem] p-1 px-2 hover:bg-gray-200 block mx-auto"
           onClick={()=> handleAddItem(item)}>Add +</button>
