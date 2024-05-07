@@ -4,10 +4,13 @@ import vegLogo from "../../img/1024px-Veg_symbol.svg.png"
 
 
 const RestaurantCard = ({resData}) =>{
+  // console.log(resData)
     const {name , cloudinaryImageId, cuisines, avgRatingString, costForTwo, sla} = resData.info
    return (
-     <div className="m-4 p-4 w-60 border rounded-lg pb-2 text-md hover:bg-gray-100 hov">
-       <img className="rounded-lg w-full" src={RES_IMG_KEY + cloudinaryImageId} alt="res-logo"></img>
+     <div className="m-4 p-4 w-60 border rounded-lg pb-2 text-md hover:bg-gray-100">
+      <div className="">
+       <img className="rounded-lg w-full max-h-44" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} alt="res-logo"></img>
+       </div>
        <h1 className="font-bold my-1 h-10">{name}</h1>
        <h4 className="text-sm h-[3.75rem]">{cuisines.join(" ,")}</h4>
        <div className="mt-4 mb-2 text-sm font-bold text-neutral-600">

@@ -3,8 +3,6 @@ import { RES_IMG_KEY } from "../utils/constants";
 import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ list }) => {
-  // console.log(list);
-
   const dispatch = useDispatch();
 
   const handleAddItem = (item)=>{

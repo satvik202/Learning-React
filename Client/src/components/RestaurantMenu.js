@@ -1,7 +1,6 @@
 import useRestaurantMenue from "../utils/useRestaurantMenu";
 import { useParams } from "react-router-dom";
-import Shimmer from "./Shimmer";
-
+import {Shimmer} from 'react-shimmer';
 import RestautrantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
@@ -11,7 +10,13 @@ const RestaurantMenu = () => {
   const { restaurant, menuItems } = useRestaurantMenue(resId);
 
   if (restaurant == null) {
-    return <Shimmer />;
+    return (
+      <div className="w-6/12 h-screen  mx-auto my-4 mt-5 p-4 cursor-pointer border rounded-lg">
+        <div className="overflow-hidden rounded-xl">
+        <Shimmer width={1000} height={740}></Shimmer>
+        </div>
+      </div>
+    )
   }
   // console.log(menuItems)
   return (

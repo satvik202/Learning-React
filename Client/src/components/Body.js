@@ -1,9 +1,11 @@
 import RestaurantCard, { RestaurantCardWithVegLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
-import Shimmer from "./Shimmer";
+import ShimmerUI from "./ShimmerUI";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import { RES_CARD_API } from "../utils/constants.js";
+
+
 
 const Body = () => {
   const [restaurant, setRestaurant] = useState([]);
@@ -39,7 +41,14 @@ const Body = () => {
   }
   // this is also called as conditional rendering
   if (!restaurant || restaurant.length === 0) {
-    return <Shimmer />;
+    const shimmerArray = Array.from({ length: 10 }).map((_, index) => <ShimmerUI key={index} />);
+    return (
+      <div className="flex justify-center mt-20 mb-10">
+        <div className="flex flex-wrap pl-20">
+        {shimmerArray}
+        </div>
+      </div>
+    )
   }
 
   // console.log(filteredRestaurant);
