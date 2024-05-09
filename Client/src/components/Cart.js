@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
+import CartItems from "./CartItems";
 
 const Cart = ()=> {
     const list= useSelector((store) => store.cart.items);
@@ -15,7 +16,7 @@ const Cart = ()=> {
             <button className="border border-amber-400 rounded-lg p-2 bg-amber-500 hover:bg-amber-600 mr-4"
             onClick={()=> dispatch(clearCart())}>Clear Cart</button>
             </div>
-            <ItemList list={list}/>
+            <CartItems list={list}/>
             </div>
         </div>
     )

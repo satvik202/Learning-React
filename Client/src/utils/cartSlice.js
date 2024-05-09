@@ -9,8 +9,12 @@ const cartSlice = createSlice({
         addItem : (state, action)=> {
             state.items.push(action.payload);
         },
-        removeItem : (state)=>{
-            state.items.pop(); 
+        removeItem : (state, action)=>{
+            const id  = action.payload.card.info.id
+            let index = state.items.findIndex(item =>item.card.info.id === id);
+            if(index!=-1)
+            state.items.splice(index, 1)
+            // state.items.pop();
         },
         clearCart : (state)=>{
             state.items.length=0
